@@ -11,10 +11,12 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
   canActivate(context: ExecutionContext) {
     // Verifica se a rota tem o decorator @Public()
-    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
-      context.getHandler(),
-      context.getClass(),
-    ])
+    const isPublic = this.reflector.getAllAndOverride<boolean>(
+      'IS_PUBLIC_KEY',
+      [context.getHandler(), context.getClass()],
+    )
+
+    console.log('teste')
 
     if (isPublic) {
       return true
