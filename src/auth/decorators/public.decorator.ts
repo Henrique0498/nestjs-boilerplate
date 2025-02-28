@@ -1,4 +1,3 @@
 import { SetMetadata } from '@nestjs/common'
-import { IS_PUBLIC_KEY } from 'src/services/keys'
 
-export const Public = () => SetMetadata(IS_PUBLIC_KEY, true)
+export const Public = () => SetMetadata(process.env.NODE_ENV_PUBLIC_KEY, true)
