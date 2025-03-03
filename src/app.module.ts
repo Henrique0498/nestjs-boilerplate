@@ -5,9 +5,12 @@ import { AuthModule } from './auth/auth.module'
 import { ConfigModule } from '@nestjs/config'
 
 @Module({
-  imports: [AuthModule,ConfigModule.forRoot({
-    isGlobal: true
-  })],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
